@@ -1,0 +1,84 @@
+// principe : d'eviter de repeter des bloc de codes
+// déclaration : @mixin nom {...}
+// Différence entre:
+// @extend : crée une nouvelle selecteur apart pour les propriétés hérité.
+// par contre @mixin : inclue les propriétés à l'interieur du selecteur ciblé
+
+// importer la mixins.scss qui contient des blocs de code qu'on ne souhaite pas repeter
+@import "../modules/mixins.scss";
+
+
+$primary: rgb(255, 200, 210);
+$danger: rgb(255, 0, 0);
+$success: rgb(118, 255, 118);
+$lepad: 20px;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: $lepad;
+    background-color: $primary;
+    border-radius: $lepad;
+    padding: $lepad + 10px;
+    color: antiquewhite;
+    text-align: center;
+}
+
+%bouton {
+    width: 96vw;
+    height: 100%;
+    margin: 20px;
+}
+
+
+.bouton {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+        @extend %bouton;
+        border-radius: 30px;
+        text-decoration: line-through;
+        background-color: $primary;
+        // on utilise @include
+        @include ahodina10;
+
+        &:hover {
+            background-color: rgba($primary, 0.5);
+            cursor: pointer;
+            box-shadow: 0px 0px 20px rgba(3, 3, 3, 0.89);
+        }
+    }
+
+    .btn-danger {
+        @extend %bouton;
+        color: beige;
+        background-color: $danger;
+
+        &:hover {
+            background-color: lighten($danger, 20);
+            cursor: pointer;
+            box-shadow: 0px 0px 20px rgba(3, 3, 3, 0.89);
+        }
+    }
+
+
+    .btn-success {
+        @extend .btn;
+        background-color: $success;
+
+        &:hover {
+            background-color: darken($success, 40);
+            box-shadow: 0px 0px 20px rgba(3, 3, 3, 0.89);
+        }
+    }
+
+}

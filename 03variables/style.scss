@@ -1,0 +1,109 @@
+// principe : stocker des valeurs dans une variable (des valeurs des propriétés)
+// déclaration : mettre un dollar davant le nom du variable ($nom)
+
+// importer la module responsive.scss qui regroupe des variables de media query
+@import "../modules/responsive.scss";
+
+
+
+$primary: rgb(255, 200, 210);
+$danger: rgb(255, 0, 0);
+$success: rgb(118, 255, 118);
+$lepad: 20px;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: $lepad;
+    background-color: $primary;
+    border-radius: $lepad;
+    // opération avec une variable (même unité)
+    padding: $lepad + 10px;
+    color: antiquewhite;
+    text-align: center;
+}
+
+// faux selecteur
+%bouton {
+    width: 96vw;
+    height: 100%;
+    margin: 20px;
+}
+
+// tout ce qui est bouton
+.bouton {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+        @extend %bouton;
+        border-radius: 30px;
+        text-decoration: line-through;
+        // on met directement le nom du variable
+        background-color: $primary;
+
+        &:hover {
+            // fonction d'opacité: rgba(couleur,opacité)
+            background-color: rgba($primary, 0.5);
+            cursor: pointer;
+            box-shadow: 0px 0px 20px rgba(3, 3, 3, 0.89);
+        }
+    }
+
+    .btn-danger {
+        @extend %bouton;
+        color: beige;
+        // on met directement le nom du variable
+        background-color: $danger;
+
+        &:hover {
+            // fonction de contraste: lighten(couleur,pourcentage-eclairage)
+            background-color: lighten($danger, 20);
+            cursor: pointer;
+            box-shadow: 0px 0px 20px rgba(3, 3, 3, 0.89);
+        }
+    }
+
+
+    .btn-success {
+        @extend .btn;
+        // on met directement le nom du variable
+        background-color: $success;
+
+        &:hover {
+            // fonction de contraste: darken(couleur,pourcentage-assombrissement)
+            background-color: darken($success, 40);
+            box-shadow: 0px 0px 20px rgba(3, 3, 3, 0.89);
+        }
+    }
+
+}
+
+// convertir un variable dans un selecteur #{...}
+@media #{$medium} {
+    %bouton {
+        width: 50vw;
+    }
+}
+
+// convertir un variable dans un selecteur #{...}
+@media #{$large} {
+    %bouton {
+        width: 33vw;
+    }
+}
+
+// convertir un variable dans un selecteur #{...}
+@media #{$xlarge} {
+    %bouton {
+        width: 22vw;
+    }
+}

@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+  background-color: rgb(255, 108, 194);
+  border-radius: 20px;
+  padding: 20px;
+  color: antiquewhite;
+  text-align: center;
+}
+
+.bouton .btn-danger, .bouton .btn, .bouton .btn-success {
+  width: 45%;
+  height: 100%;
+  margin: 2%;
+}
+
+.bouton {
+  width: 100%;
+  height: 50px;
+}
+.bouton .btn, .bouton .btn-success {
+  border-radius: 30px;
+  text-decoration: line-through;
+  background-color: pink;
+}
+.bouton .btn:hover, .bouton .btn-success:hover {
+  background-color: rgb(255, 83, 112);
+  cursor: pointer;
+}
+.bouton .btn-danger {
+  background-color: rgb(255, 0, 0);
+}
+.bouton .btn-danger:hover {
+  background-color: rgb(110, 14, 14);
+  cursor: pointer;
+}
+.bouton .btn-success {
+  background-color: rgb(118, 255, 118);
+}
+.bouton .btn-success:hover {
+  background-color: green;
+}
+
+/*# sourceMappingURL=style.css.map */

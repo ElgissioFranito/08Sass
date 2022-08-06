@@ -1,0 +1,14 @@
+@mixin ahodina10 {
+
+    // pour tout les navigateurs
+    --webkit-transform: rotate(10deg);
+    // pour internet explorer
+    -ms-transform: rotate(10deg);
+    // pour opera
+    -o-transform: rotate(10deg);
+    // pour modzilla
+    -moz-transform: rotate(10deg);
+    transform: rotate(10deg);
+}
+
+// déclaration : @mixin nom {...}

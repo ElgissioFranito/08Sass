@@ -1,0 +1,7 @@
+// utilisation dans 03variables, variables pour les media screen
+
+// on met entre guiellemet parce que ces variables contient des espaces comme séparateur
+$small : "only screen and (max-width: 768px)";
+$medium : "only screen and (min-width: 768px)";
+$large : "only screen and (min-width: 968px)";
+$xlarge : "only screen and (min-width: 1200px)";

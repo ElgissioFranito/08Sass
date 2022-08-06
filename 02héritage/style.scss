@@ -1,0 +1,66 @@
+// principe : faire dire a un sélecteur d'agir comme un autre selecteur 
+// (avec le mot clé @extend , sans un "s") en plus de ses propriétés 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: rgb(255, 108, 194);
+    border-radius: 20px;
+    padding: 20px;
+    color: antiquewhite;
+    text-align: center;
+}
+
+// un faux sélecteur précédé de "%" (qui n'apparaît qu'au moment de la @extend)
+%bouton {
+    width: 45%;
+    height: 100%;
+    margin: 2%;
+}
+
+// tout ce qui est bouton
+.bouton {
+    width: 100%;
+    height: 50px;
+
+    .btn {
+        // prend tous les propriétés du faux sélécteur %bouton
+        @extend %bouton;
+        border-radius: 30px;
+        text-decoration: line-through;
+        background-color: pink;
+
+        &:hover {
+            background-color: rgb(255, 83, 112);
+            cursor: pointer;
+        }
+    }
+
+    .btn-danger {
+        // prend tous les propriétés du faux sélécteur %bouton
+        @extend %bouton;
+        background-color: rgb(255, 0, 0);
+
+        &:hover {
+            background-color: rgb(110, 14, 14);
+            cursor: pointer;
+        }
+    }
+
+
+    .btn-success {
+        // si je change la les propriété dans .btn, la .btn-success change automatiquement
+        @extend .btn;
+
+        background-color: rgb(118, 255, 118);
+
+        &:hover {
+            background-color: green;
+        }
+    }
+}
